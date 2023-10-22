@@ -4,7 +4,7 @@ Coursework and Lab code snippets for CMPT726: Machine learning (Taught by Ke Li 
 [Lab Structure](https://www2.cs.sfu.ca/~mori/courses/cmpt726/)
 
 
-# SFU CMPT726 Machine Learning Assignments
+# Assignments
 
 ## Lab 1 - Regression
 
