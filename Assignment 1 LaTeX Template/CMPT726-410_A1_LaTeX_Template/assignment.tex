@@ -1,0 +1,217 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper, total={6.5in, 10in}]{geometry}
+
+\usepackage{amsmath}    % Gives access to useful math symbols
+\usepackage{amssymb}    % Gives access to useful math symbols
+\usepackage{amsthm}     % Gives good formatting for writing proofs
+\usepackage{mathrsfs}   % Gives access to script math symbols
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\usepackage{parskip}
+\usepackage{float}      % Allows for customized placement of floats
+\usepackage{graphicx}   % Allows you to include graphics
+\graphicspath{{images/}} % Sets base directory for images
+\usepackage{xcolor}     % Allows for colored text
+\usepackage{listings}   % Allows for formatted code
+\usepackage{tikz}       % Allows for the creation of diagrams
+\usepackage{titling}
+\usepackage{comment}
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+
+\usepackage{tocloft}    % Formats list of page numbers
+\cftsetindents{section}{0em}{6em}
+\cftsetindents{subsection}{0em}{4.5em}
+
+% colours for code formatting
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  columns=flexible,
+  keywordstyle=\color{blue},       % keyword style
+  language=Python,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  % numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  % numbersep=5pt,                   % how far the line-numbers are from the code
+  % numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  % stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,                       % sets default tabsize to 2 spaces
+  basicstyle=\ttfamily,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
+}
+
+\usepackage{hyperref}   % Allows you to include links
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+% Custom formatting specific to this assignment template
+
+\newcommand{\signature}{    % Signature line
+  \parbox{\textwidth}{
+    \vspace{2cm}
+    \parbox{7cm}{
+      \centering
+      \rule{6cm}{1pt}\\
+       \theauthor
+    }
+  }
+}
+
+% Enumerate question numbers and part numbers automatically
+
+\renewcommand{\thesection}{Question \arabic{section}}
+\renewcommand{\thesubsection}{Part \arabic{section}(\alph{subsection})}
+\renewcommand\thesubsubsection{Subpart \arabic{section}(\alph{subsection})(\roman{subsubsection})}
+
+% Define command for the automatic display of page numbers of each part and subpart
+
+\renewcommand{\contentsname}{Page Numbers}
+\newcommand\pagenums{\setcounter{tocdepth}{2}\tableofcontents}
+
+% Automatically put each part on a separate page
+
+\newcommand\question{\clearpage\section}
+\newcommand\qpart{\clearpage\subsection}
+\newcommand\qsubpart{\subsubsection}
+
+% Solution in blue
+\newenvironment{solution}{\parindent0pt \color{blue} \textit{\textbf{Solution.}}}{ \par}
+
+% Custom commands you are encouraged to use
+\newcommand{\argmax}{\text{arg}\,\text{max}}
+\newcommand{\argmin}{\text{arg}\,\text{min}}
+\newcommand{\x}{\vec x}
+\newcommand{\w}{\vec w}
+\newcommand{\norm}[1]{||#1||_2}
+\newcommand{\normsq}[1]{||#1||_2^2}
+\newcommand{\tran}{{}^{\!\top\!}}
+\newcommand{\T}{\tran}
+\DeclareMathOperator*{\diag}{diag}
+\DeclareMathOperator*{\sign}{sign}
+
+% Command for partial derivatives. The first argument denotes the function and the second argument denotes the variable with respect to which the derivative is taken. The optional argument denotes the order of differentiation. The style (text style/display style) is determined automatically
+\providecommand{\pd}[3][]{\ensuremath{
+\ifinner
+\tfrac{\partial{^{#1}}#2}{\partial{#3^{#1}}}
+\else
+\dfrac{\partial{^{#1}}#2}{\partial{#3^{#1}}}
+\fi
+}}
+
+% Differential (upface d)
+\DeclareMathOperator{\dif}{d \!}
+
+% ordinary derivative - analogous to the partial derivative command
+\providecommand{\od}[3][]{\ensuremath{
+\ifinner
+\tfrac{\dif{^{#1}}#2}{\dif{#3^{#1}}}
+\else
+\dfrac{\dif{^{#1}}#2}{\dif{#3^{#1}}}
+\fi
+}}
+
+\title{CMPT 726/410 Fall 2023 Assignment 1} % PUT THE ASSIGNMENT NUMBER HERE
+\author{Your Name Here (Your Student ID \#)} % PUT YOUR NAME HERE
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\textcopyright Simon Fraser University. All Rights Reserved. Sharing this publicly constitutes both academic misconduct and copyright violation.
+
+%%%%% Please read and delete the following section before turning in the assignment.
+
+\paragraph{Due:} Thursday, November 23, 2023 at 11:59 pm Pacific Time
+
+\paragraph{Important:} Make sure to download the zip archive associated with this assignment, which contains essential data and starter code that are required to complete the programming component of the assignment.
+
+This assignment is designed to be substantially more challenging than the quizzes and requires thorough understanding of the course material and extensive thought, so \textbf{start early!} If you are stuck, come to office hours. Make sure to check the discussion board often for updates, clarifications, corrections and/or hints. 
+
+Partial credit will be awarded to reasonable attempts at solving each question, even if they are not completely correct. 
+
+There will be office hours dedicated to assignment-related questions. Times and Zoom links will be posted on Canvas. If you have a question that you would like to ask during office hours, make sure to post a brief summary of your question in the office hours thread on the Canvas discussion board. During office hours, questions will be answered in the order they appeared on the office hours thread. We may not be able to get to all questions, so please start early and plan ahead.
+
+\paragraph{Requests for extensions will not be considered under any circumstances.}{Make sure you know how to submit your assignment to Crowdmark and leave sufficient time to deal with any technical difficulties, Internet outages, server downtimes or any other unanticipated events. It is possible to update your assignment after submission, so we recommend uploading a version of your assignment at least several hours before the deadline, even if it is incomplete.}
+
+\subsection*{Submission Instructions}
+Carefully follow the instructions below when submitting your assignment. Not following instructions will result in point deductions. 
+
+\begin{enumerate}
+    \item You should typeset your assignment in LaTeX using this document as a template. We recommend using \href{https://www.overleaf.com/}{Overleaf} to compile your LaTeX. Include images in the section they go with and \textbf{do not} put them in an appendix.
+    \item At the beginning of the assignment (see above), please copy the following statement and sign your signature next to it. (macOS Preview and FoxIt PDF Reader, among others, have tools to let you sign a PDF file.) We want to make it \textit{extra} clear so that no one inadvertently cheats.
+    \begin{center}\textit{``I certify that all solutions are entirely in my own words and that I have not looked at another student's solutions. I have given credit to all external sources I consulted."}\end{center}
+    \item At the start of each problem---not subproblem; you only need to do this twice---please state: (1) who you received help from on the problem, and (2) who you provided help to. 
+    \item For all theory questions, make sure to \textbf{show  your work} and include all key steps in your derivations and proofs. If you apply a non-trivial theorem or fact, you must state the theorem or fact you used, either by name (e.g.: Jensen's inequality) or by writing down the general statement of the theorem or fact. You may use theorems and facts covered in lecture without proof. If you use non-trivial theorems and facts not covered in lecture, you must prove them. All conditions should be checked before applying a theorem, and if a statement follows from a more general fact, the reason why it is a special case of the general fact should be stated. The direction of logical implication must be clearly stated, e.g.: if statement A implies statement B, statement B implies statement A, or statement A is equivalent to statement B (i.e.: statement A is true if and only if statement B is true). You should \textbf{number} the equations that you refer to in other parts and refer to them by their numbers. You must \textbf{highlight the final answer or conclusion} in your PDF submission, either by changing the font colour to red or drawing a box around it. 
+    \item For all programming questions, starter code is provided as a Jupyter notebook. You should work out your solution in the notebook. We recommend uploading your notebook to a hosted service like \href{https://colab.research.google.com/}{Google Colab} to avoid the installation of dependencies and minimize setup time. When you are done, take a screenshot of your code and output and include it in your PDF. In addition, you should download the Jupyter notebook with your solutions (\texttt{File $\rightarrow$ Download $\rightarrow$ Download .ipynb}) and also download your code (\texttt{File $\rightarrow$ Download $\rightarrow$ Download .py}). You need to \textbf{submit both} as a zip archive named ``\texttt{CMPT726-410\_A1\_\textlangle Last Name\textrangle\_\textlangle Student ID\textrangle.zip}'', whose directory structure should be the same as that of the zip archive for the starter code. Do \textbf{NOT} include any data files we provided. Please include a short file named \textbf{README} listing your name and student ID. The PDF should not be included in the zip archive and should be submitted \textbf{separately}. Please make sure that your code doesn't take up inordinate amounts of time or memory. If your code cannot be executed, your solution cannot be verified. 
+    
+    \item Assignment submissions will be accepted through Crowdmark. The submission portal will open a week before the assignment is due. Make sure to set aside at least \textbf{one hour} to submit the assignment. Crowdmark will ask you to split the PDF by each part of each question. Make sure to upload the correct pages for each part, and double check when you are done. 
+\end{enumerate}
+
+\subsection*{Python Configuration}
+We recommend using Google Colab to complete the parts of this assignment that require coding. However, if you would like to set up your own Python environment on your computer, follow the instructions below. 
+\begin{enumerate}
+    \item Ensure you have Python 3 installed. If you don't, we recommend \href{https://conda.io/projects/conda/en/stable/user-guide/install/macos.html#install-macos-silent}{miniconda} as a package manager. To ensure you're running Python 3, open a terminal in your operating system and execute the following command: \texttt{python --version}
+    \textbf{Do not proceed until you're running some (recent) version of Python 3.}
+    \item Install \texttt{scikit-learn} and \texttt{scipy}: \newline\texttt{conda install -y -c conda-forge scikit-learn scipy matplotlib}
+    \item To check whether your Python environment is configured properly for this homework, ensure the following Python script executes without error. Pay attention to errors raised when attempting to import any dependencies. Resolve such errors by manually installing the required dependency (e.g. execute \verb|conda install -c conda-forge numpy| for import errors relating to the numpy package).
+    \begin{verbatim}
+    import sys
+    if sys.version_info[0] < 3:
+        raise Exception("Python 3 not detected.")
+    
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from scipy import io
+    \end{verbatim}
+    \item Please use only the packages listed above.
+\end{enumerate}
+
+\subsection*{Collaboration and Academic Integrity}
+
+While collaboration is encouraged, all of your submitted work must be your own. Concretely, that means you may discuss general approaches to problems with other students, but you must write your solutions on your own. For more information, see the  \href{https://canvas.sfu.ca/courses/67692/assignments/syllabus}{course syllabus} under ``Academic Integrity." If you got help from or gave help to other students, please note their names at start of every question. Additionally, sign the declaration at the bottom of this page. 
+
+\paragraph{Warning:}{Copying others’ solutions, seeking help from others not in this course, posting questions online or entering questions into automated question answering systems are considered cheating. Consequences are severe and could lead to suspension or expulsion. If you become aware of such instances, you must report them here: \url{https://forms.gle/9fw3oMLyhD1A81qy5}.}
+
+%%%%% Please read and delete the above section before turning in the assignment.
+
+\pagenums
+
+\section*{Declaration}
+
+I certify that all solutions are entirely in my own words and that I have not looked at solutions other than my own. I have given credit to all external sources I consulted.
+
+\signature
+
+\input{q1}
+
+\input{q2}
+
+
+\end{document}

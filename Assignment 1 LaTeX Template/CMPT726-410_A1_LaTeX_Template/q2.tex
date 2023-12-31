@@ -1,0 +1,111 @@
+\question{Probability [35 points]}
+
+\textbf{List your collaborators on this question below. }
+
+\begin{solution}
+
+\paragraph{Students I got help from:} WRITE STUDENTS' NAMES HERE
+
+\paragraph{Students I gave help to:} WRITE STUDENTS' NAMES HERE
+
+\paragraph{External sources that I consulted (websites, books, notes, etc.):} LIST ALL EXTERNAL SOURCES HERE
+
+\end{solution}
+
+\qpart{[5 points]}
+\textbf{Find a $2 \times 3$ matrix $A$ such that $\|A\|_F = \sqrt{8}$ and $\|A\|_2 = \sqrt{5}$, where $\|\cdot\|_F$ denotes the Frobenius norm and $\|\cdot\|_2$ denotes the spectral norm.} Explain each step of your reasoning. 
+
+\begin{solution}
+
+YOUR SOLUTIONS HERE
+
+{\color{red} Final Conclusion: YOUR FINAL ANSWER OR CONCLUSION HERE}
+
+\end{solution}
+
+\qpart{[5 points]}
+
+ You are given samples of a 2-dimensional random vector $\vec{X}$ in the \texttt{x.npy} file. In this part, we want to try to fit a distribution to this data. First, plot the samples as a scatter plot to check how the samples are distributed. Subsequently, you have to fit a Gaussian distribution to the data. Given samples $\{\vec{x}_i\}_{i=1}^{N}$ of a random vector $\vec{X}$, the true mean $\vec{\mu} := E[\vec{X}]$ and true covariance $\Sigma := E[(\vec{X} - E[\vec{X}])(\vec{X} - E[\vec{X}])^\top]$ of $\vec{X}$ can be estimated with the sample mean $\widehat{\vec{\mu}}$ and the (biased) sample covariance $\widehat{\Sigma}$, the formulas of which are below:
+
+\begin{equation}
+    \widehat{\vec{\mu}}=\frac{1}{N} \sum_{i=1}^{N} \vec{x}_{i}
+\end{equation}
+
+\begin{equation}
+    \widehat{\Sigma} = \frac{1}{N} \sum_{i=1}^{N}\left(\vec{x}_{i}-\widehat{\vec{\mu}}\right)\left(\vec{x}_{i}-\widehat{\vec{\mu}}\right)^\top
+\end{equation}
+
+\textbf{Find the sample mean and the sample covariance matrix by implementing the equations above on the given samples.} You are not permitted to use the built-in Numpy functions for computing the sample mean and covariance, but you may use built-in Numpy functions for other elementary operations, such as summation, matrix multiplication, transposes, etc. \textbf{Then plot the contours of Gaussian distribution with the estimated parameters on the scatter plot of the samples. Include a screenshot of your code, a screenshot of the output and the plot of Gaussian contours in your PDF submission. }
+
+\begin{solution}
+
+YOUR SOLUTIONS HERE
+
+{\color{red} Final Conclusion: YOUR FINAL ANSWER OR CONCLUSION HERE}
+
+\end{solution}
+
+\qpart{[5 points]}
+
+Then consider two other random vectors $\vec{Y} = A\vec{X} + \vec{b}$, and $\vec{Z} = C\vec{X} + \vec{d}$. \textbf{Find $A$ and $\vec{b}$ such that the probability density of $\vec{Y}$ is the same as the probability density $\vec{X}$ rotated about the origin by $30$ degrees counterclockwise and then translated by $[-1, -1]$, and $C$ and $\vec{d}$ such that the probability density of $\vec{Z}$ is the same as the probability density $\vec{X}$ translated by $[-1, -1]$ and then rotated about the origin by $30$ degrees counterclockwise. Plot the probability density of $\vec{Y}$ and $\vec{Z}$ as contour plots.} Show your work and justify why your answers achieve the desired effect. 
+
+\begin{solution}
+
+YOUR SOLUTIONS HERE
+
+{\color{red} Final Conclusion: YOUR FINAL ANSWER OR CONCLUSION HERE}
+
+\end{solution}
+
+\qpart{[5 points]}
+
+Suppose the random vector $\vec{X}$ is distributed according to a multivariate Gaussian with mean $\vec{0}$ and covariance matrix $AA^\top$. In other words, $\vec{X} \sim \mathcal{N}(\vec{0}, AA^\top)$. \textbf{Find a unit vector $\vec{b}$ such that the variance of the random variable $\left|\vec{b}^\top \vec{X}\right|$ is minimized, i.e., $\arg\min_{\vec{b} : \|\vec{b}\|_2 = 1} \mathrm{Var}\left(\left|\vec{b}^\top \vec{X}\right|\right)$.} Show your work and justify why your answer is correct. 
+
+\textbf{Hint 1:} For any random variable $U$, $\mathrm{Var}(|U|) = \mathbb{E}[|U|^2] - \mathbb{E}[|U|]^2 = \mathbb{E}[U^2] - \mathbb{E}[|U|]^2 = \mathrm{Var}(U) + \mathbb{E}[U]^2 - \mathbb{E}[|U|]^2$
+\textbf{Hint 2:} For any random variable $U$, $\mathrm{Var}(\sigma U) - \mathbb{E}[|\sigma U|]^2 = \sigma^2\mathrm{Var}(U) - \sigma^2 \mathbb{E}[|U|]^2 = \sigma^2(\mathrm{Var}(U) - \mathbb{E}[|U|]^2) $
+
+\begin{solution}
+
+YOUR SOLUTIONS HERE
+
+{\color{red} Final Conclusion: YOUR FINAL ANSWER OR CONCLUSION HERE}
+
+\end{solution}
+
+\qpart{[5 points]} 
+
+40 people play a game in which they have to choose an integer between 1 and 100 inclusive, independently of others. \textbf{For a particular pair of people, what is the probability that they choose the same integer?} Show your work. 
+
+\begin{solution}
+
+YOUR SOLUTIONS HERE
+
+{\color{red} Final Conclusion: YOUR FINAL ANSWER OR CONCLUSION HERE}
+
+\end{solution}
+
+\qpart{[5 points]} 
+
+Consider the same game as in the previous part. \textbf{Find the expected number of pairs of people that choose the same integer.} Show your work. 
+
+\textbf{Hint:} This expectation is of a sum of appropriately defined Bernoulli random variables. 
+
+\begin{solution}
+
+YOUR SOLUTIONS HERE
+
+{\color{red} Final Conclusion: YOUR FINAL ANSWER OR CONCLUSION HERE}
+
+\end{solution}
+
+\qpart{[5 points]} 
+
+Consider the same game as in the previous two parts. \textbf{Find the probability that the number 50 is chosen by at least two people.} Show your work. 
+
+\begin{solution}
+
+YOUR SOLUTIONS HERE
+
+{\color{red} Final Conclusion: YOUR FINAL ANSWER OR CONCLUSION HERE}
+
+\end{solution}
